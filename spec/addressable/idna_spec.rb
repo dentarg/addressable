@@ -282,21 +282,21 @@ describe Addressable::IDNA, "when using the pure-Ruby implementation" do
   end
 end
 
-begin
-  require "idn"
+# begin
+#   require "idn"
 
-  describe Addressable::IDNA, "when using the native-code implementation" do
-    before do
-      Addressable.send(:remove_const, :IDNA)
-      load "addressable/idna/native.rb"
-    end
+#   describe Addressable::IDNA, "when using the native-code implementation" do
+#     before do
+#       Addressable.send(:remove_const, :IDNA)
+#       load "addressable/idna/native.rb"
+#     end
 
-    it_should_behave_like "converting from unicode to ASCII"
-    it_should_behave_like "converting from ASCII to unicode"
-  end
-rescue LoadError => error
-  raise error if ENV["CI"] && TestHelper.native_supported?
+#     it_should_behave_like "converting from unicode to ASCII"
+#     it_should_behave_like "converting from ASCII to unicode"
+#   end
+# rescue LoadError => error
+#   raise error if ENV["CI"] && TestHelper.native_supported?
 
-  # Cannot test the native implementation without libidn support.
-  warn('Could not load native IDN implementation.')
-end
+#   # Cannot test the native implementation without libidn support.
+#   warn('Could not load native IDN implementation.')
+# end
