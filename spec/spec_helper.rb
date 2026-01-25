@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+$DEBUG = true
+
 require 'bundler/setup'
 require 'rspec/its'
 
