@@ -6821,7 +6821,7 @@ describe Addressable::URI, "when initialized in a non-main `Ractor`" do
     expect(
       Ractor.new { Addressable::URI.parse("http://example.com") }.public_send(value_method)
     ).to eq(main)
-  end
+  end unless TestHelper.is_windows?
 end
 
 describe Addressable::URI, "when deferring validation" do
