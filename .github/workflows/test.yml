@@ -176,6 +176,7 @@ jobs:
         continue-on-error: ${{ matrix.allow-failure || false }}
         id: specs
         run: bundle exec rake spec
+        shell: bash
 
       # because continue-on-error marks the steps as pass if they fail
       - name: >-
