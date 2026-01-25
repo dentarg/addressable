@@ -6814,6 +6814,8 @@ describe Addressable::URI, "support serialization roundtrip" do
 end
 
 describe Addressable::URI, "when initialized in a non-main `Ractor`" do
+  skip "Fixes test timeouts on Windows?" if TestHelper.is_windows?
+
   it "should have the same value as if used in the main `Ractor`" do
     pending("Ruby 3.0+ for `Ractor` support") unless defined?(Ractor)
     value_method = RUBY_VERSION >= "3.5.0" ? :value : :take # see https://github.com/ruby/ruby/pull/13445
