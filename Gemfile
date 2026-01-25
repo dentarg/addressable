@@ -6,8 +6,8 @@ gemspec
 
 group :test do
   gem 'bigdecimal' if RUBY_VERSION > '2.4'
-  gem 'rspec', '~> 3.8'
-  gem 'rspec-its', '~> 1.3'
+  gem 'rspec'
+  gem 'rspec-its'
 end
 
 group :coverage do
